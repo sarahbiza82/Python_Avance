@@ -284,13 +284,6 @@ def update_dashboard(locations):
 
     return fig_ca_dec, fig_qty_dec, fig_bar, fig_line, table_df.to_dict("records"), columns
 
-
-# =========================
-# RUN APP
-# =========================
-if __name__ == "__main__":
-    app.run_server(debug=True, port=806, jupyter_mode="external")
-
 # =========================
 # RUN APP
 # =========================
