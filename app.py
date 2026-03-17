@@ -4,7 +4,8 @@ import plotly.express as px
 import plotly.graph_objects as go
 import pandas as pd
 
-df = pd.read_csv("data.csv")
+df = pd.read_csv("data.csv", encoding="utf-8")
+
 # 2. Garder uniquement les colonnes utiles
 df = df[["CustomerID", "Gender", "Location", "Product_Category", "Quantity",
     "Avg_Price", "Transaction_Date", "Month", "Discount_pct"
@@ -20,6 +21,7 @@ df['CustomerID'] = df['CustomerID'].astype(int)
 df['Transaction_Date'] = pd.to_datetime(df['Transaction_Date'])
 
 # 5. Créer Total_price avec la remise
+df['Total_price'] = df['Quantity'] * df['Avg_Price'] * (1 - df['Discount_pct'] / 100)
 
 # =========================
 # Global Style
