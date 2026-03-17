@@ -2,6 +2,7 @@ import dash
 from dash import dcc, html, dash_table, Input, Output
 import plotly.express as px
 import plotly.graph_objects as go
+import pandas as pd
 
 df = pd.read_csv("data.csv")
 
@@ -34,8 +35,9 @@ location_options = [
 # App
 # =========================
 app = dash.Dash(__name__)
-app.title = "ECAP Store"
 server = app.server
+
+app.title = "ECAP Store"
 
 
 HEADER = "#bfe3ee"
