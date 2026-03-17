@@ -5,6 +5,21 @@ import plotly.graph_objects as go
 import pandas as pd
 
 df = pd.read_csv("data.csv")
+# 2. Garder uniquement les colonnes utiles
+df = df[["CustomerID", "Gender", "Location", "Product_Category", "Quantity",
+    "Avg_Price", "Transaction_Date", "Month", "Discount_pct"
+    ]]
+
+# 3. Remplacer les valeurs manquantes dans CustomerID par 0
+df['CustomerID'] = df['CustomerID'].fillna(0)
+
+# Convertir CustomerID en entier
+df['CustomerID'] = df['CustomerID'].astype(int)
+
+# 4. Convertir Transaction_Date en format date
+df['Transaction_Date'] = pd.to_datetime(df['Transaction_Date'])
+
+# 5. Créer Total_price avec la remise
 
 # =========================
 # Global Style
